@@ -4,38 +4,42 @@ skin rose
 
 title Stigespill - Klasse Diagram
 
-class Stigespill{}
-class Brett{}
-class Rute{
-	+Posisjon
+class Stigespill{
+	+Terning : Terning
+	+Brett : Brett
+	+Spillere : List<Spiller>
 }
-class Slange{
-	+StartPos
-	+SluttPos
+class Brett{
+	+Ruter : List<Rute>
+	+Stiger : List<Stige>
+}
+class Rute{
+	+Posisjon : Integer
+	+Stige : Stige
 }
 class Stige{
-	+StartPos
-	+SluttPos
+	+StartPos : Rute
+	+SluttPos : Rute
 }
 class Spiller{
-	+Navn
+	+Navn : String
+	+Brikke : Brikke
 }
 class Brikke{
-	+Farge
+	+Farge : String
+	+Posisjon : Rute
 }
 class Terning{
-	+Verdi
+	+Verdi : Integer
 }
 
-Brett "1" -down- "100" Rute: Inneholder
-Brett "1" -right- "8" Slange: Inneholder
-Brett "1" -left- "8" Stige: Inneholder
-Rute "2" -right- "0..1" Slange: Har
-Rute "2" -left- "0..1" Stige: Har
-Stigespill "1" -down- "2..4" Spiller: Spiller
-Stigespill "1" -down- "1" Brett
-Stigespill "1" -left- "1" Terning: Spiller med
-Spiller "1" -down- "1" Brikke: Eier
-Brikke "0..4" -right- "1" Rute: Er på
+Brett "1" -down- "100 " Rute: Inneholder >
+Brett "1   " -right- " 16" Stige: Inneholder >
+Stige "0..1    " -down- "2" Rute : Har >
+Stigespill "1  " -down- "2..4" Spiller: Spiller
+Stigespill "1" -down- "1  " Brett
+Stigespill "1   " -right- "   1" Terning: Spiller med
+Spiller "1" -down- "1" Brikke: Eier >
+Brikke "0..4" -right- "   1" Rute: Er på >
 
 @enduml
