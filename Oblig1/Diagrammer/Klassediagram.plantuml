@@ -33,13 +33,14 @@ class Terning{
 	+Verdi : Integer
 }
 
-Brett "1" -down- "100 " Rute: Inneholder >
+Brett "1" *-down- "100 " Rute: Inneholder >
 Brett "1   " -right- " 16" Stige: Inneholder >
 Stige "0..1    " -down- "2" Rute : Har >
-Stigespill "1  " -down- "2..4" Spiller: Spiller
-Stigespill "1" -down- "1  " Brett
+Stigespill "1  " o-down- "2..4" Spiller: Spiller
+Stigespill "1" *-down- "1  " Brett
 Stigespill "1   " -right- "   1" Terning: Spiller med
 Spiller "1" -down- "1" Brikke: Eier >
+Spiller o-right- Brett
 Brikke "0..4" -right- "   1" Rute: Er på >
 
 @enduml

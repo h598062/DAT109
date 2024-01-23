@@ -1,0 +1,18 @@
+@startuml obstruksjon
+
+!startsub obs
+alt obstruksjon == null
+			br -> br
+			note right
+				Beholder denne ruten
+			end note
+		else obstruksjon == stige
+			br -> st: rute = hentSluttRute()
+			br -> r: flyttTilRute(rute)
+		else obstruksjon == slange
+			br -> sl: rute = hentSluttRute()
+			br -> r: flyttTilRute(rute)
+		end
+!endsub
+
+@enduml

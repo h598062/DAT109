@@ -17,23 +17,11 @@ participant ":Slange" as sl
 loop til vinn
 	loop alle spillere
 		sp -> s: spillTrekk()
-		s -> t: trill()
-		s -> t: steg = getVerdi()
+		s -> t: steg = trill()
 		s -> br: flytt(steg)
 		br -> r: flytt(steg)
 		br -> r: obstruksjon = harObstruksjon(rute)
-		alt obstruksjon == null
-			br -> br
-			note right
-				Beholder denne ruten
-			end note
-		else obstruksjon == stige
-			br -> st: rute = hentSluttRute()
-			br -> r: flyttTilRute(rute)
-		else obstruksjon == slange
-			br -> sl: rute = hentSluttRute()
-			br -> r: flyttTilRute(rute)
-		end
+		!includesub obstruksjon.plantuml!obs
 
 		s -> br: rute = getRute()
 		s -> s: spiller = getNavn()
