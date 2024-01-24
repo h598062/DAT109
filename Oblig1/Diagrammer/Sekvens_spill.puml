@@ -5,12 +5,12 @@ skin rose
 title "Stigespill - spill - Sekvens Diagram"
 
 participant ":Stigespill" as sp
-participant ":Brett" as bt
 participant ":Spiller" as s
 participant ":Terning" as t
 participant ":Brikke" as br
-participant ":Rute" as r
+participant ":Brett" as bt
 participant ":Stige" as st
+participant ":Rute" as r
 
 !startsub spill
 -> sp: spill()
