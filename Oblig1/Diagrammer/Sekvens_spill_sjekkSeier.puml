@@ -1,0 +1,24 @@
+@startuml Sekvens_spill_sjekkSeier
+
+skin rose
+
+title "Stigespill - sjekkSeier - Sekvens Diagram"
+
+participant ":Stigespill" as sp
+participant ":Spiller" as s
+participant ":Brikke" as br
+participant ":Rute" as r
+
+!startsub sjekkSeier
+sp -> sp: sjekkSeier()
+sp -> s: getBrikke()
+s -> br: getPosisjon()
+br -> r: getRutePosisjon()
+sp --> sp: true/false
+alt true
+	sp --> sp: vinner = spiller
+	<- sp: break
+end
+!endsub
+
+@enduml

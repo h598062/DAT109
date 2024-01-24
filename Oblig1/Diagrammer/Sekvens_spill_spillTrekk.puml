@@ -1,0 +1,21 @@
+@startuml Sekvens_spill_spillTrekk
+
+skin rose
+
+title "Stigespill - spillTrekk - Sekvens Diagram"
+
+participant ":Stigespill" as sp
+participant ":Spiller" as s
+participant ":Terning" as t
+participant ":Brikke" as br
+participant ":Rute" as r
+
+!startsub spillTrekk
+sp -> s: nyPos = spillTrekk()
+s -> t: trill()
+s -> br: getPosisjon()
+br -> r: getRutePosisjon()
+sp <-- s: nyPos
+!endsub
+
+@enduml
